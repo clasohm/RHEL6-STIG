@@ -587,6 +587,17 @@
 
 # V-38578 auditd
 
+- name: "LOW | V-38583 | PATCH | The system boot loader configuration file(s) must have mode 0600 or less permissive."
+  file:
+    path: /boot/grub/grub.conf
+    mode: 'u-x,g-rwx,o-rwx'
+  tags:
+    - cat3
+    - low
+    - V-38583
+    - grub
+    - patch
+
 # V-38584 remove xinetd
 - name: "LOW | V-38584 | AUDIT | The xinetd service must be uninstalled if no network services utilizing it are enabled."
   command: rpm -q xinetd
